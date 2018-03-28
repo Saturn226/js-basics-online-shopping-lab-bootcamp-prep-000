@@ -17,13 +17,14 @@ function addToCart(item) {
 
 function viewCart() {
   let message = 'In your cart, you have '
+  let list = []
   if (cart.length === 0)
     return 'Your shopping cart is empty.'
   else{
   
-    var list = cart.map(item =>{
-      return `${item.itemName} at $${item.itemPrice}`
-    })
+    for(var i = 0; i < cart.length; i++){
+      list.push( `${cart[i].itemName} at $${cart[i].itemPrice}`)
+    }
     if(cart.length > 1){
       list.push(`and ${list.pop()}`)
       list = list.join(", ")
